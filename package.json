@@ -2,17 +2,37 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@salesforce/babel-preset-design-system-react": "^3.0.0",
+    "@salesforce/eslint-config-lwc": "^0.4.0",
+    "@salesforce/sfdx-lwc-jest": "^0.7.0",
+    "babel-loader": "^8.0.0",
+    "css-loader": "^1.0.0",
+    "http-server": "^0.11.1",
+    "postcss-loader": "^2.1.6",
+    "style-loader": "^0.21.0",
+    "svg-url-loader": "^6.0.0",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "lightning-container": "^1.0.0",
+    "plivo-browser-sdk": "^2.1.29",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "webpack --config webpack.config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
