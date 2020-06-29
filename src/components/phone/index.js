@@ -132,9 +132,12 @@ const CallButton = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: #2196f3;
-  padding: 1rem 1.5rem;
-  border-radius: 20px;
+  height: 4rem;
+  width: 4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
   color: #fff;
   font-weight: 600;
 
@@ -148,9 +151,12 @@ const DeclineButton = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: #d72638;
-  padding: 1rem 1.5rem;
-  border-radius: 20px;
+  height: 4rem;
+  width: 4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
   color: #fff;
   font-weight: 600;
 
