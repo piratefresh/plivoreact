@@ -6,7 +6,7 @@ function getPhoneNum(evt) {}
 
 export default function Phone() {
   const [phone, setPhone] = React.useState("");
-  const [number, setNumber] = React.useState("");
+
   React.useEffect(() => {
     window.addEventListener(
       "message",
@@ -24,7 +24,11 @@ export default function Phone() {
       },
       false
     );
-  });
+  }, [phone]);
+
+  React.useEffect(() => {
+    login();
+  }, []);
 
   const login = () => {
     plivoLogin("testSetvi601456389888242960483", "Setvi2020!");
