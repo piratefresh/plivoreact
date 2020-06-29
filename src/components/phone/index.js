@@ -87,6 +87,7 @@ export default function Phone() {
       <InputNumber
         type="text"
         value={phone}
+        placeholder="Phone Number"
         onChange={(e) => setPhone(e.target.value)}
       />
       <Buttons>
