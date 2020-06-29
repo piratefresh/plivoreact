@@ -2,8 +2,27 @@ import React from "react";
 import PropTypes from "prop-types";
 import { plivoLogin, plivoCall } from "../../utils/plivo";
 
+function getPhoneNum(evt) {}
+
 export default function Phone() {
   const [phone, setPhone] = React.useState("");
+  const [number, setNumber] = React.useState("");
+  React.useEffect(() => {
+    window.addEventListener(
+      "message",
+      (evt) => {
+        console.log(evt);
+        if (evt.origin !== origin) {
+          // Not the expected origin: Reject the message!
+          return;
+        }
+        // Handle the message
+        console.log(evt.data);
+      },
+      false
+    );
+  });
+
   const login = () => {
     plivoLogin("testSetvi601456389888242960483", "Setvi2020!");
   };
