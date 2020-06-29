@@ -5,6 +5,7 @@ import { plivoLogin, plivoCall } from "../../utils/plivo";
 import styled from "styled-components";
 import PhoneIcon from "../../icons/call";
 import SettingsIcon from "../../icons/settings";
+import Settings from "../settings";
 
 const options = {
   debug: "DEBUG",
@@ -20,7 +21,8 @@ export default function Phone() {
   const [phone, setPhone] = React.useState("");
   const [calling, setCalling] = React.useState();
   const [callStatus, setCallStatus] = React.useState();
-  const [initied, setinitied] = React.useState(false);
+  const [showOption, setShowOption] = React.useState(false);
+  const [permission, setPermission] = React.useState(false);
   React.useEffect(() => {
     window.addEventListener(
       "message",
@@ -57,7 +59,9 @@ export default function Phone() {
   const hangupCall = () => {
     plivo.client.hangup();
   };
-
+  const toggleSettings = () => {
+    setShowOption((showOption) => !showOption);
+  };
   // plivo event listeners
   plivo.client.on("onLogin", () => {
     console.log("logged in index");
@@ -66,12 +70,20 @@ export default function Phone() {
     setCalling(true);
     setCallStatus("Calling");
   });
+  plivo.client.on("onIncomingCall", (callerID, extraHeaders, callInfo) => {
+    console.log(callerID, callInfo);
+  });
+  plivo.client.on("onMediaPermission", () => {
+    setPermission(true);
+  });
+
   return (
     <Container>
       <h2>{callStatus}</h2>
       <Header>
-        <SettingsIcon />
+        <SettingsIcon onClick={toggleSettings} />
       </Header>
+      {showOption && <Settings plivo={plivo} permission={permission} />}
       <InputNumber
         type="text"
         value={phone}
@@ -100,6 +112,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 300px;
 `;
 
 const Header = styled.div`
