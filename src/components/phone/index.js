@@ -12,7 +12,9 @@ export default function Phone() {
       "message",
       (evt) => {
         console.log(evt);
-        if (evt.origin !== origin) {
+        if (
+          evt.origin !== "https://setvidashboardtest-dev-ed.lightning.force.com"
+        ) {
           // Not the expected origin: Reject the message!
           return;
         }
