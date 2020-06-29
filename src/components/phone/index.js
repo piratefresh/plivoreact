@@ -18,6 +18,7 @@ export default function Phone() {
         }
         // Handle the message
         console.log(evt.data);
+        setPhone(evt.data);
       },
       false
     );
@@ -34,7 +35,11 @@ export default function Phone() {
     <>
       <h2>Plivo Test</h2>
 
-      <input type="text" onChange={(e) => setPhone(e.target.value)} />
+      <input
+        type="text"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+      />
       <button onClick={login}>Login</button>
       <button onClick={call}>Call?</button>
     </>
