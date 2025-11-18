@@ -13,7 +13,7 @@
     "@babel/preset-react": "^7.0.0",
     "@salesforce/babel-preset-design-system-react": "^3.0.0",
     "@salesforce/eslint-config-lwc": "^0.4.0",
-    "@salesforce/sfdx-lwc-jest": "^0.7.0",
+    "@salesforce/sfdx-lwc-jest": "^7.1.2",
     "babel-loader": "^8.0.0",
     "css-loader": "^1.0.0",
     "http-server": "^0.11.1",
